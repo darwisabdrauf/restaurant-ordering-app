@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- developed by Muhammad Darwis -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Ordering App</title>
+    <!-- FONT TYPEFACE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- WEB ICON -->
+    <link rel="icon" href="img/cafe-icon.png" type="image/x-icon"/>
+    <!-- FONTAWESOME CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS STYLESHEET -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1 class="main-title">Wiss Cafe</h1>
+        <p class="main-tagline">The best chillin' cafe in town.</p>
+    </header>
+    
+    <!-- FOOD MENU -->
+    <main>
+        <div class="container" id="all-menus">
+            <!-- <div class="menu-item">
+                <img class="menu-img" src="menu-img.png" alt="menu no 1">
+                <div class="menu-desc">
+                    <h2 class="menu-name">Chicken Teriyaki Pizza</h2>
+                    <span class="menu-ingredients">Pepperoni, Mushroom, Mozarella, Chicken Teriyaki.</span>
+                    <span class="menu-price">RM 10</span>
+                </div>
+                <div>
+                    <button class="btn add-to-cart-btn" id="add-to-cart-btn">&plus;</button>
+                 </div>
+            </div> -->
+        </div>
+    </main>
+
+    <!-- ORDER SUMMARY -->
+    <section class="order-summary" id="order-summary">
+    </section>
+
+    <!-- PAYMENT MODAL DIALOG -->
+    <div class="payment-modal" id="payment-modal">
+        <div class="modal-container">
+            <h3 class="modal-title">Enter Card Details</h3>
+            <form class="payment-form" id="payment-form">
+                <input 
+                    id="customer-name"
+                    type="text" 
+                    name="fullName" 
+                    placeholder="Enter your name" 
+                    pattern="^[a-zA-Z\s]*$" 
+                    aria-label="Full Name" 
+                    required 
+                />
+                <input 
+                    type="text" 
+                    name="cardNumber" 
+                    placeholder="Enter card number" 
+                    pattern="\d*" 
+                    maxlength="16" 
+                    aria-label="Card Number" 
+                    required 
+                />
+                <input 
+                    type="text" 
+                    name="cardCvv" 
+                    placeholder="Enter CVV" 
+                    pattern="\d*" 
+                    maxlength="3" 
+                    aria-label="CVV Number" 
+                    required 
+                />
+                <button type="submit" class="btn btn-primary pay-btn" id="pay-btn">Pay</button>
+            </form>
+        </div>
+
+    </div>
+    <script src="index.js" type="module"></script>
+</body>
+</html>
+
