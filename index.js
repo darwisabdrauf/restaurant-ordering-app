@@ -10,18 +10,17 @@ function renderMenu() {
     menu.innerHTML = menuArray.map((menu) => {
         return `
             <div class="menu-item">
-                <p "class="menu-img" style="font-size: 40px; role="img "alt="menu no 1">${menu.emoji}</p>
+                <p "class="menu-img" role="img" alt="menu no ${menu.id}" style="font-size: 40px;">${menu.emoji}</p>
                 <div class="menu-desc">
                     <h2 class="menu-name">${menu.name}</h2>
                     <span class="menu-ingredients">${menu.ingredients.join(', ')}</span>
                     <span class="menu-price">RM ${menu.price}</span>
                 </div>
                 <div>
-                    <button class="btn add-to-cart-btn" data-id=${menu.id}>&plus;</button>
+                    <button class="btn add-to-cart-btn" data-id="${menu.id}">&plus;</button>
                 </div>
             </div>
         `
-        
     }).join('')
 }
 
@@ -36,14 +35,6 @@ function handleOrderSummary(menuId) {
     console.log(order)
 
     renderOrderSummary()
-
-    if (order.length !== 0) {
-        const paymentBtn = document.getElementById("checkout-btn")
-    
-        paymentBtn.addEventListener('click', () => {
-            paymentModal.style.display = 'block'
-        })
-    } 
 }
 
 function renderOrderSummary() {
@@ -72,15 +63,22 @@ function renderOrderSummary() {
     `
 
     const removeBtns = document.querySelectorAll('.remove-item')
+    const paymentBtn = document.getElementById("checkout-btn")
 
     removeBtns.forEach(button => {
         button.addEventListener('click', (e) => {
             const indexToRemove = parseInt(e.target.dataset.index)
             order.splice(indexToRemove, 1)
-            renderOrderSummary() /
+            renderOrderSummary() 
             console.log(order)
         })
     })
+
+    if (order.length !== 0) {
+        paymentBtn.addEventListener('click', () => {
+            paymentModal.style.display = 'block'
+        })
+    } 
 }
 
 
@@ -102,19 +100,13 @@ paymentForm.addEventListener('submit', (e) => {
     const customerName = paymentData.get('fullName')
 
     orderSummary.innerHTML = `
-        <h4 class="thanks-note">Payment Processing...</h4>
+        <h4 class="status-msg">Payment Processing...</h4>
     `
     
     setTimeout(() => {
         orderSummary.innerHTML = `
-            <h4 class="thanks-note">Thanks, ${customerName}! Your order is on its way!</h4>
+            <h4 class="status-msg">Thanks, ${customerName}! Your order is on its way!</h4>
         `
     }, 1500)
     
 })
-
-/* 
-    HINTS:
-        1. When an item is added to an order, you will need to push its object to an array of orders and iterate over that array to generate html string.
-        2. To remove an order, you will need to figure out the index of that menu item’s object in the array of orders. 
-*/
