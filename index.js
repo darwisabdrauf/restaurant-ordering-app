@@ -3,6 +3,7 @@ import { menuArray } from '/data.js'
 const menu = document.getElementById("all-menus")
 const orderSummary = document.getElementById("order-summary")
 const paymentModal = document.getElementById("payment-modal")
+const overlayEl = document.getElementById("overlay-el")
 const paymentForm = document.getElementById("payment-form")
 let order = []
 
@@ -77,6 +78,7 @@ function renderOrderSummary() {
     if (order.length !== 0) {
         paymentBtn.addEventListener('click', () => {
             paymentModal.style.display = 'block'
+            overlayEl.style.display = 'block'
         })
     } 
 }
