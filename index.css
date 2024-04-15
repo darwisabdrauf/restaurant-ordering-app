@@ -155,7 +155,7 @@ header {
 
 /*  --- ORDER SUMMARY --- */
 .order-summary {
-    min-height: 350px;
+    min-height: 120px;
     padding: 30px 20px;
 }
 
