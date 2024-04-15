@@ -95,6 +95,7 @@ document.addEventListener('click', (e) => {
 paymentForm.addEventListener('submit', (e) => {
     e.preventDefault()
     paymentModal.style.display = 'none'
+    overlayEl.style.display = 'none'
 
     const paymentData = new FormData(paymentForm)
     console.log(paymentData)
